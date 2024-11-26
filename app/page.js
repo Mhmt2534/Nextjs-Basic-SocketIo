@@ -12,7 +12,11 @@ export default function Home() {
 
   useEffect(() => {
     socketInitializer();
+    console.log("AAA");
+
     return () => {
+      console.log(socket);
+
       if (socket) {
         socket.disconnect();
       }
@@ -20,7 +24,7 @@ export default function Home() {
   }, []);
 
   const socketInitializer = () => {
-    socket = io("http://localhost:8000");
+    socket = io("http://192.168.x.x:8000");
 
     socket.on("connect", () => {
       console.log("Bağlantı başarılı");
